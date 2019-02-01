@@ -14,7 +14,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos=Todo::all();
+      //  $todos=Todo::all();
+        $todos=Todo::orderBy('created_at','desc')->get();
         return view('todos.index')->with('todos',$todos);
     }
 
@@ -45,9 +46,10 @@ class TodoController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function show(Todo $todo)
+    public function show($id)
     {
-        //
+        $todo=Todo::findOrFail($id);
+        return view('todos.show')->with('todo',$todo);
     }
 
     /**

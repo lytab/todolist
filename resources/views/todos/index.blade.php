@@ -9,7 +9,10 @@
 
     @foreach ($todos as $todo)
      <div class="well">
-         <h3>{{$todo->title}}
+         <h3>
+             <a href="todo/{{$todo->id}}">
+                {{$todo->title}}
+             </a>
         
                 <span class="label label-danger">{{$todo->due}}</span>
         </h3>
