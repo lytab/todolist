@@ -8,7 +8,8 @@
         {{Form::bsText('title')}}
         {{Form::bsTextArea('body')}}
         {{Form::bsText('due')}}
-        {{Form::bsSubmit('Create Todo')}}
+        {{Form::bsSubmit('Create Todo',['class'=>'btn btn-danger'])}}
+
     {!!Form::close()!!}
 
 @endsection

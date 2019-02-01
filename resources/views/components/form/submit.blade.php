@@ -1,3 +1,3 @@
 <div>
-        {{Form::submit($value,array_merge(['class' => 'btn btn-success'], $attributes))}}
+        {{Form::submit($value,$attributes)}}
     </div>

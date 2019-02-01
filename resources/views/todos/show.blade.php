@@ -12,5 +12,10 @@
       <hr>  <p class="lead">{{$todo->body}}</p>
       <br><br>
       <a href="/todo/{{$todo->id}}/edit" class="btn btn-default">Edit</a>
+      {!!Form::open(['action'=>['TodoController@destroy',$todo->id],'method'=>'PUT','class'=>"pull-right"])!!}
+         {{Form::hidden('_method',"DELETE")}} 
+        {{Form::bsSubmit('Delete Todo',['class'=>'btn btn-danger'])}}
+    {!!Form::close()!!}
+
 
 @endsection

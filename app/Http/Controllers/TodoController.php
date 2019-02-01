@@ -104,6 +104,6 @@ class TodoController extends Controller
     {
         $todo=Todo::findOrFail($id);
         $todo->delete();
-        return redirect()->back()->with('status','Todo deleted !');
+        return redirect('/')->with('status','Todo deleted !');
     }
 }
