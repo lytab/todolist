@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title','create')
 @section('content')
+<h1>Create Todo</h1>
+
     {!!Form::open(['action'=>'TodoController@store','method'=>'POST'])!!}
     
         {{Form::bsText('title')}}

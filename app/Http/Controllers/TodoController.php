@@ -69,9 +69,10 @@ class TodoController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Todo $todo)
+    public function edit($id)
     {
-        //
+        $todo=Todo::findOrFail($id);
+        return view('todos.edit')->with('todo',$todo);
     }
 
     /**
@@ -81,9 +82,16 @@ class TodoController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $todo=Todo::findOrFail($id);
+        $todo->title=$request->title;
+        $todo->body=$request->body;
+        $todo->due=$request->due;
+        $todo->save();
+        return redirect()->back()->with('status','Todo Updated !');
+    
     }
 
     /**

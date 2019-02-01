@@ -9,5 +9,8 @@
        
         </h1>
         <div class="label label-danger">{{$todo->due}}</div>
-        <p>{{$todo->body}}</p>
+      <hr>  <p class="lead">{{$todo->body}}</p>
+      <br><br>
+      <a href="/todo/{{$todo->id}}/edit" class="btn btn-default">Edit</a>
+
 @endsection
