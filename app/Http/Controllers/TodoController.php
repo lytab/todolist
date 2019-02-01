@@ -26,7 +26,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        return view('todos.create');
     }
 
     /**
@@ -81,8 +81,10 @@ class TodoController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todo $todo)
+    public function destroy($id)
     {
-        //
+        $todo=Todo::findOrFail($id);
+        $todo->delete();
+        return redirect()->back()->with('status','Todo deleted !');
     }
 }
